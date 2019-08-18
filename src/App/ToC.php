@@ -25,7 +25,7 @@ class ToC
             wp_enqueue_script( 'jQuery-CDN', $this->get_option('editor_addres','editor_style') . '/assets/jQuery/jquery.min.js', array(), WP_EDITORMD_VER, true );
         }
 
-        wp_enqueue_script('ToC', WP_EDITORMD_URL . '/assets/lib/jquery.toc.min.js');
+        wp_enqueue_script('ToC', WP_EDITORMD_URL . '/assets/lib/jquery.toc.min.js', [], WP_EDITORMD_VER, true);
     }
 
     public function toc_wp_footer_scripts()

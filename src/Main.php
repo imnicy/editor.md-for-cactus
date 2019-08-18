@@ -3,7 +3,7 @@
 namespace Editormd;
 
 use EditormdAdmin\Controller as ControllerAdmin;
-use EditormdFront\Controller as ControllerFront;
+use EditormdApp\ToC;
 use EditormdApp\WPComMarkdown;
 use EditormdApp\PrismJSAuto;
 use EditormdApp\KaTeX;
@@ -83,6 +83,7 @@ class Main {
 		new Guide( $this->text_domain );
 
 		// 根据选项开启相关选项
+        $this->get_option( 'support_toc', 'editor_toc' ) == 'on' ? new ToC() : null;
 		$this->get_option( 'task_list', 'editor_basics' ) == 'on' ? new TaskList() : null;
 		$this->get_option( 'imagepaste', 'editor_basics' ) == 'on' ? new ImagePaste() : null;
 		$this->get_option( 'support_katex', 'editor_katex' ) == 'on' ? new KaTeX() : null;
@@ -90,7 +91,6 @@ class Main {
 		$this->get_option( 'support_mindmap', 'editor_mindmap' ) == 'on' ? new MindMap() : null;
 		$this->get_option( 'support_emoji', 'editor_emoji' ) == 'on' ? new Emoji() : null;
 		$this->get_option( 'highlight_mode_auto', 'syntax_highlighting' ) == 'on' ? new PrismJSAuto() : null;
-		//$this->get_option( 'support_other_text', 'editor_basics' ) !== '' ? new ControllerFront() : null; //前端资源加载
 	}
 
 	/**

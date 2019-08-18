@@ -76,7 +76,8 @@ class Activator {
 	);
 
 	public static $defaultOptionsToc = array(
-		'support_toc' => 'off'
+		'support_toc' => 'off',
+        'toc_container' => '#toc'
 	);
 
 	public static $defaultOptionsKatex = array(
